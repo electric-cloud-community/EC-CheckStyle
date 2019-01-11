@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta name="generator" content=
+  "HTML Tidy for Windows (vers 25 March 2009), see www.w3.org" />
+  <meta content="text/html; charset=us-ascii" http-equiv=
+  "content-type" />
+
+  <title>ElectricFlow Plugin for Checkstyle</title>
+  <link rel="stylesheet" href=
+  "../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css"
+  media="screen" />
+</head>
+
+<body>
+  <div class="help">
+    <h1>Checkstyle</h1>
+
+    <p>Plugin Version @PLUGIN_VERSION@</p>
+    <hr style=
+    "margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;"
+    noshade="noshade" />
+    <!-- The tool description should answer these kinds of questions:
+                What is the tool itself is used for in the development
+                process? Who would use this tool? What is the general use-case or
+                problem that this tool solves? Look at the tool's documentation or
+                website(s) to get their own descriptions. Look at Wikipedia or other
+                outside websites. If there is a Hudson plugin, read their
+                documentation for ideas, examples, etc. It's OK to copy word-for-word
+                only if appropriate, such as FOSS - but not commercial software.
+                -->
+
+	<p>July 1, 2015</p>			
+				
+    <p>Checkstyle is a development tool to help programmers write
+    Java code that adheres to a coding standard. It automates the
+    process of checking Java code to spare humans of this boring
+    (but important) task. This makes it ideal for projects that
+    want to enforce a coding standard. Checkstyle is highly
+    configurable and can be made to support almost any coding
+    standard. An example configuration file is supplied supporting
+    the Sun Code Conventions. As well, other sample configuration
+    files are supplied for other well known conventions.</p>
+
+    <h2>Checkstyle Links</h2>
+
+    <p>More information can be found at <a href=
+    "http://checkstyle.sourceforge.net/">this website</a>.</p>
+
+    <h2>ElectricFlow Integration to Checkstyle</h2>
+
+    <p>The plugin creates a command line with the user-provided
+    parameters and calls the CheckStyle tool's
+    <b>checkstyle-5.4-all.jar</b> command line, which is the one
+    who analyze the java source code.<br />
+    Moreover, our postp feature is available for the plugin and an
+    xml report and a log file is generated after running the
+    analysis.</p>
+
+    <h2>Integrated Version</h2>
+
+    <p>This plugin was developed and tested against version
+    5.4.</p>
+
+    <h1>Plugin Procedures</h1>
+
+    <p>IMPORTANT: For all parameter descriptions below, required
+    parameters are shown in <span class='required'>bold
+    italics</span>.</p>
+
+    <div id="runCheckStyle"><a name='runCheckStyle' id=
+    "runCheckStyle"></a>
+
+    <h3>runCheckStyle</h3>
+
+    <p>The runCheckStyle procedure creates and executes a command
+    line from the parameters you provide in the procedure form.</p>
+
+    <table class="grid">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Java exec path</td>
+
+          <td>Provide the path to java.exe. Default is java, which
+          assumes it is already loaded in the environment.</td>
+        </tr>
+
+        <tr>
+          <td class='required'>CheckStyle path</td>
+
+          <td>Provide the absolute path to CheckStyle's jar file.
+          (checkstyle-5.4-all.jar)(Required)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Configuration file</td>
+
+          <td>Indicate the configuration file to apply during
+          analysis. (This is the command-line '-c'
+          option)(Required)</td>
+        </tr>
+
+        <tr>
+          <td>Output format</td>
+
+          <td>Specify the log format. (This is the command-line
+          '-f' option)</td>
+        </tr>
+
+        <tr>
+          <td>Properties file</td>
+
+          <td>Indicate the property file to use for a specific
+          analysis. (This is the command-line '-p' option)</td>
+        </tr>
+
+        <tr>
+          <td>Output file name</td>
+
+          <td>Indicate the file for output. (This is the
+          command-line '-o' option)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Type of target</td>
+
+          <td>Type of target to analyze, either if it is a source
+          directory root or a single source file. (This is the
+          command-line '-r' option only if you choose the
+          <b>Directory</b> option)(Required)</td>
+        </tr>
+
+        <tr>
+          <td class='required'>Resource(s) to analyze</td>
+
+          <td>Specify the directory to traverse for Java source
+          files or the file to analyze. (Required)</td>
+        </tr>
+
+        <tr>
+          <td>Additional commands</td>
+
+          <td>Provide any additional general commands for
+          CheckStyle. Write commands as if they were typed in the
+          console.</td>
+        </tr>
+
+        <tr>
+          <td>Working directory</td>
+
+          <td>Indicate the desired working directory. Leave blank
+          to use the default workspace.</td>
+        </tr>
+      </tbody>
+    </table><img src=
+    "../../plugins/@PLUGIN_KEY@/images/CheckStyle-1.png" alt=
+    "Form" /></div>
+
+    <h1>Examples and Use Cases</h1>
+
+    <p>In this example we will see how to use CheckStyle from
+    ElectricFlow to analyze java code.</p>
+
+    <ol>
+      <li>First of all we will need a java project to analyze. for
+      this example we are going to use the google-gson java
+      library, available <a href=
+      "http://code.google.com/p/google-gson/source/checkout">here</a></li>
+
+      <li>Once you have downloaded the sources, we are going to
+      create the following structure under the <b>C</b>
+      drive:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/Tree.png" alt=
+      "Tree" /></li>
+
+      <li>Then we should create a step and fill the parameter
+      form:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/CheckStyle-1.png"
+      alt="Form" /></li>
+	  
+	  <li>After the job is run a summary is displayed:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/CheckStyle-2.png"
+      alt="Form" /></li>
+	  
+	  <li>Issues summary - Table of issues:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/CheckStyle-3.png"
+      alt="Form" /></li>
+	  
+	  <li>Issues summary - Interactive Chart:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/CheckStyle-4.png"
+      alt="Form" /></li>
+
+      <li>Finally it's time to run the procedure and see the
+      results:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/CheckStyle-5.png"
+      alt="xmlReport" /></li>
+
+      <li>For more detail you can see the log file:<br />
+      <img src="../../plugins/@PLUGIN_KEY@/images/CheckStyle-6.png"
+      alt="logFile" /></li>
+    </ol>
+
+    <h1>Release Notes</h1>
+	
+	<h2>@PLUGIN_KEY@ 2.0.5</h2>
+		<ul>
+			<li>Renamed ElectricCommander to ElectricFlow.</li>
+		</ul> 	
+
+	<h2>@PLUGIN_KEY@-2.0.4</h2>
+
+    <ul>
+        <li>Added a new visual summary of issues under the job Links section.</li>
+		<li>Fixed summary of issues on the status job column.</li>
+    </ul>
+	
+    <h2>@PLUGIN_KEY@-2.0.3</h2>
+
+    <ul>
+        <li>Procedure name(s) were changed in the step picker section</li>
+    </ul>
+    
+    <h2>@PLUGIN_KEY@-2.0.2</h2>
+
+    <ul>
+      <li>Change Help page style.</li>
+    </ul>
+
+    <h2>@PLUGIN_KEY@-2.0.0</h2>
+
+    <ul>
+      <li>XML parameter panels</li>
+
+      <li>The help page was changed</li>
+    </ul>
+
+    <h2>@PLUGIN_KEY@-1.0.1</h2>
+
+    <ul>
+      <li>Code improvements</li>
+
+      <li>Fixed bug (Local Resource)</li>
+
+      <li>Created extra systemtests</li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<editor>
+    <help>/commander/pages/@PLUGIN_NAME@/@PLUGIN_KEY@_help?s=Administration&amp;ss=Plugins#runCheckStyle</help>
+    <formElement>
+        <type>entry</type>
+        <label>Java exec path:</label>
+        <property>javapath</property>
+        <required>0</required>
+        <documentation>Provide the path to java.exe. Default is java, which assumes it is already loaded in the environment.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>CheckStyle path:</label>
+        <property>commandtoexec</property>
+        <required>1</required>
+        <documentation>Provide the absolute path to CheckStyle's jar file. (checkstyle-5.4-all.jar)(Required)</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Configuration file:</label>
+        <property>configfile</property>
+        <required>1</required>
+        <documentation>Indicate the configuration file to apply during analysis. (This is the command-line '-c' option)(Required)</documentation>
+    </formElement>
+    <formElement>
+        <type>select</type>
+        <label>Output format:</label>
+        <property>outputformat</property>
+        <required>0</required>
+        <documentation>Specify the log format. (This is the command-line '-f' option)</documentation>
+        <option><name>XML</name><value>xml</value></option>
+        <option><name>Plain</name><value>plain</value></option>
+        <value>plain</value>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Properties file:</label>
+        <property>propertiesfile</property>
+        <required>0</required>
+        <documentation>Indicate the property file to use for a specific analysis. (This is the command-line '-p' option).</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Output file name:</label>
+        <property>outputfile</property>
+        <required>0</required>
+        <documentation>Indicate the file for output. (This is the command-line '-o' option).</documentation>
+    </formElement>
+    <formElement>
+        <type>select</type>
+        <label>Type of target</label>
+        <property>targettype</property>
+        <required>1</required>
+        <documentation>Type of target to analyze, either if it is a source directory root or a single source file. (This is the command-line '-r' option only if you choose the Directory option)(Required)</documentation>
+        <option><name>Directory</name><value>dir</value></option>
+        <option><name>File</name><value>file</value></option>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Resource(s) to analyze:</label>
+        <property>targets</property>
+        <required>1</required>
+        <documentation>Specify the directory to traverse for Java source files or the file to analyze.</documentation>
+    </formElement>
+    <formElement>
+        <type>textarea</type>
+        <label>Additional commands:</label>
+        <property>checkstylecommands</property>
+        <required>0</required>
+        <documentation>Provide any additional general commands for CheckStyle. Write commands as if they were typed in the console.</documentation>
+    </formElement>
+    <formElement>
+        <type>entry</type>
+        <label>Working directory:</label>
+        <property>workingDir</property>
+        <required>0</required>
+        <documentation>Indicate the desired working directory. Leave blank to use the default workspace.</documentation>
+    </formElement>
+</editor>
