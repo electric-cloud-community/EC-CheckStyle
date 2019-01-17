@@ -1,0 +1,23 @@
+<?xml version='1.0' standalone='yes'?>
+<fileset>
+  <file>
+    <path>checkStyleDriver.pl</path>
+    <xpath>//property[propertyName=&quot;checkStyleDriver&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>postp_matchers.pl</path>
+    <xpath>//property[propertyName=&quot;checkStyle_matchers&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>forms/runCheckStyle.xml</path>
+    <xpath>//procedure[procedureName=&quot;runCheckStyle&quot;]/propertySheet/property[propertyName=&quot;ec_parameterForm&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>ec_setup.pl</path>
+    <xpath>//property[propertyName=&quot;ec_setup&quot;]/value</xpath>
+  </file>
+  <file>
+    <path>template.html</path>
+    <xpath>//property[propertyName=&quot;template&quot;]/value</xpath>
+  </file>
+</fileset>
